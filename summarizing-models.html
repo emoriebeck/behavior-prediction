@@ -24,7 +24,7 @@
 <meta name="author" content="Emorie D Beck" />
 
 
-<meta name="date" content="2021-05-26" />
+<meta name="date" content="2021-06-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -309,18 +309,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="summarizing-models.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/final-model-param.RData&quot;</span>, res_path)))</span>
 <span id="cb58-2"><a href="summarizing-models.html#cb58-2" aria-hidden="true" tabindex="-1"></a>param_res</span></code></pre></div>
 <pre><code>## # A tibble: 5,485 x 8
-##    model  SID   outcome group         set    time    params               coefs     
-##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;   &lt;list&gt;               &lt;list&gt;    
-##  1 glmnet 01    prcrst  full          all    no time &lt;tibble[,4] [1 × 4]&gt; &lt;dbl [49]&gt;
-##  2 glmnet 01    prcrst  psychological Affect no time &lt;tibble[,4] [1 × 4]&gt; &lt;dbl [10]&gt;
-##  3 glmnet 01    prcrst  psychological all    no time &lt;tibble[,4] [1 × 4]&gt; &lt;dbl [25]&gt;
-##  4 glmnet 01    prcrst  psychological BFI-2  no time &lt;tibble[,4] [1 × 4]&gt; &lt;dbl [15]&gt;
-##  5 glmnet 01    prcrst  situations    all    no time &lt;tibble[,4] [1 × 4]&gt; &lt;dbl [24]&gt;
-##  6 glmnet 01    prcrst  situations    S8-I   no time &lt;tibble[,4] [1 × 4]&gt; &lt;dbl [8]&gt; 
-##  7 glmnet 01    prcrst  situations    sit    no time &lt;tibble[,4] [1 × 4]&gt; &lt;dbl [16]&gt;
-##  8 glmnet 02    prcrst  full          all    no time &lt;tibble[,4] [1 × 4]&gt; &lt;dbl [48]&gt;
-##  9 glmnet 02    prcrst  full          all    time    &lt;tibble[,4] [1 × 4]&gt; &lt;dbl [64]&gt;
-## 10 glmnet 02    prcrst  psychological Affect no time &lt;tibble[,4] [1 × 4]&gt; &lt;dbl [10]&gt;
+##    model  SID   outcome group         set    time    params           coefs     
+##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;   &lt;list&gt;           &lt;list&gt;    
+##  1 glmnet 01    prcrst  full          all    no time &lt;tibble [1 × 4]&gt; &lt;dbl [49]&gt;
+##  2 glmnet 01    prcrst  psychological Affect no time &lt;tibble [1 × 4]&gt; &lt;dbl [10]&gt;
+##  3 glmnet 01    prcrst  psychological all    no time &lt;tibble [1 × 4]&gt; &lt;dbl [25]&gt;
+##  4 glmnet 01    prcrst  psychological BFI-2  no time &lt;tibble [1 × 4]&gt; &lt;dbl [15]&gt;
+##  5 glmnet 01    prcrst  situations    all    no time &lt;tibble [1 × 4]&gt; &lt;dbl [24]&gt;
+##  6 glmnet 01    prcrst  situations    S8-I   no time &lt;tibble [1 × 4]&gt; &lt;dbl [8]&gt; 
+##  7 glmnet 01    prcrst  situations    sit    no time &lt;tibble [1 × 4]&gt; &lt;dbl [16]&gt;
+##  8 glmnet 02    prcrst  full          all    no time &lt;tibble [1 × 4]&gt; &lt;dbl [48]&gt;
+##  9 glmnet 02    prcrst  full          all    time    &lt;tibble [1 × 4]&gt; &lt;dbl [64]&gt;
+## 10 glmnet 02    prcrst  psychological Affect no time &lt;tibble [1 × 4]&gt; &lt;dbl [10]&gt;
 ## # … with 5,475 more rows</code></pre>
 </div>
 <div id="classification-accuracy-and-auc-for-all-models" class="section level3" number="6.1.2">
@@ -361,18 +361,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb60-33"><a href="summarizing-models.html#cb60-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tab =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(data, outcome, group, set, time), perf_tab_fun))</span>
 <span id="cb60-34"><a href="summarizing-models.html#cb60-34" aria-hidden="true" tabindex="-1"></a>sum_res_tab</span></code></pre></div>
 <pre><code>## # A tibble: 28 x 6
-##    outcome group         set    time    data                  tab           
-##    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;   &lt;list&gt;                &lt;list&gt;        
-##  1 prcrst  full          all    no time &lt;tibble[,7] [83 × 7]&gt; &lt;kablExtr [1]&gt;
-##  2 prcrst  psychological Affect no time &lt;tibble[,7] [89 × 7]&gt; &lt;kablExtr [1]&gt;
-##  3 prcrst  psychological all    no time &lt;tibble[,7] [89 × 7]&gt; &lt;kablExtr [1]&gt;
-##  4 prcrst  psychological BFI-2  no time &lt;tibble[,7] [98 × 7]&gt; &lt;kablExtr [1]&gt;
-##  5 prcrst  situations    all    no time &lt;tibble[,7] [83 × 7]&gt; &lt;kablExtr [1]&gt;
-##  6 prcrst  situations    S8-I   no time &lt;tibble[,7] [83 × 7]&gt; &lt;kablExtr [1]&gt;
-##  7 prcrst  situations    sit    no time &lt;tibble[,7] [98 × 7]&gt; &lt;kablExtr [1]&gt;
-##  8 prcrst  full          all    time    &lt;tibble[,7] [75 × 7]&gt; &lt;kablExtr [1]&gt;
-##  9 prcrst  psychological Affect time    &lt;tibble[,7] [81 × 7]&gt; &lt;kablExtr [1]&gt;
-## 10 prcrst  psychological all    time    &lt;tibble[,7] [81 × 7]&gt; &lt;kablExtr [1]&gt;
+##    outcome group         set    time    data              tab           
+##    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;   &lt;list&gt;            &lt;list&gt;        
+##  1 prcrst  full          all    no time &lt;tibble [83 × 7]&gt; &lt;kablExtr [1]&gt;
+##  2 prcrst  psychological Affect no time &lt;tibble [89 × 7]&gt; &lt;kablExtr [1]&gt;
+##  3 prcrst  psychological all    no time &lt;tibble [89 × 7]&gt; &lt;kablExtr [1]&gt;
+##  4 prcrst  psychological BFI-2  no time &lt;tibble [98 × 7]&gt; &lt;kablExtr [1]&gt;
+##  5 prcrst  situations    all    no time &lt;tibble [83 × 7]&gt; &lt;kablExtr [1]&gt;
+##  6 prcrst  situations    S8-I   no time &lt;tibble [83 × 7]&gt; &lt;kablExtr [1]&gt;
+##  7 prcrst  situations    sit    no time &lt;tibble [98 × 7]&gt; &lt;kablExtr [1]&gt;
+##  8 prcrst  full          all    time    &lt;tibble [75 × 7]&gt; &lt;kablExtr [1]&gt;
+##  9 prcrst  psychological Affect time    &lt;tibble [81 × 7]&gt; &lt;kablExtr [1]&gt;
+## 10 prcrst  psychological all    time    &lt;tibble [81 × 7]&gt; &lt;kablExtr [1]&gt;
 ## # … with 18 more rows</code></pre>
 <p>Now I’ll print the tables in different tabs below. Here, I’m only showing the set with combined features for each category for parsimony. The full results are in the online materials under 05-results/04-tables/01-participant-metrics.</p>
 <div id="procrastination" class="section level4 tabset" number="6.1.2.1">
@@ -506,12 +506,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb67-29"><a href="summarizing-models.html#cb67-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb67-30"><a href="summarizing-models.html#cb67-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tab =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(data, outcome, .metric), px_bm_fun)); px_best_mods</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 4
-##   outcome .metric  data                  tab           
-##   &lt;chr&gt;   &lt;chr&gt;    &lt;list&gt;                &lt;list&gt;        
-## 1 prcrst  accuracy &lt;tibble[,7] [89 × 7]&gt; &lt;kablExtr [1]&gt;
-## 2 prcrst  roc_auc  &lt;tibble[,7] [89 × 7]&gt; &lt;kablExtr [1]&gt;
-## 3 lonely  accuracy &lt;tibble[,7] [51 × 7]&gt; &lt;kablExtr [1]&gt;
-## 4 lonely  roc_auc  &lt;tibble[,7] [51 × 7]&gt; &lt;kablExtr [1]&gt;</code></pre>
+##   outcome .metric  data              tab           
+##   &lt;chr&gt;   &lt;chr&gt;    &lt;list&gt;            &lt;list&gt;        
+## 1 prcrst  accuracy &lt;tibble [89 × 7]&gt; &lt;kablExtr [1]&gt;
+## 2 prcrst  roc_auc  &lt;tibble [89 × 7]&gt; &lt;kablExtr [1]&gt;
+## 3 lonely  accuracy &lt;tibble [51 × 7]&gt; &lt;kablExtr [1]&gt;
+## 4 lonely  roc_auc  &lt;tibble [51 × 7]&gt; &lt;kablExtr [1]&gt;</code></pre>
 <p>Now, let’s print each of these tables and see what they demonstrate.</p>
 <div id="procrastination-accuracy" class="section level5" number="6.1.3.1.1">
 <h5><span class="header-section-number">6.1.3.1.1</span> Procrastination, Accuracy</h5>
@@ -521,7 +521,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:750px; ">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-37">Table 6.1: </span><strong>Table SX</strong><br><em>Feature Set and Accuracy for Predicting Procrastinating for Each Participant’s Best Model</em>
+<span id="tab:unnamed-chunk-45">Table 6.1: </span><strong>Table SX</strong><br><em>Feature Set and Accuracy for Predicting Procrastinating for Each Participant’s Best Model</em>
 </caption>
 <thead>
 <tr>
@@ -2609,7 +2609,7 @@ Full, No Time
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:750px; ">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-37">Table 6.1: </span><strong>Table SX</strong><br><em>Feature Set and AUC for Predicting Procrastinating for Each Participant’s Best Model</em>
+<span id="tab:unnamed-chunk-45">Table 6.1: </span><strong>Table SX</strong><br><em>Feature Set and AUC for Predicting Procrastinating for Each Participant’s Best Model</em>
 </caption>
 <thead>
 <tr>
@@ -4695,7 +4695,7 @@ Full, No Time
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:750px; ">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-37">Table 6.1: </span><strong>Table SX</strong><br><em>Feature Set and Accuracy for Predicting Lonely for Each Participant’s Best Model</em>
+<span id="tab:unnamed-chunk-45">Table 6.1: </span><strong>Table SX</strong><br><em>Feature Set and Accuracy for Predicting Lonely for Each Participant’s Best Model</em>
 </caption>
 <thead>
 <tr>
@@ -5923,7 +5923,7 @@ Situations, No Time
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:750px; ">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-37">Table 6.1: </span><strong>Table SX</strong><br><em>Feature Set and AUC for Predicting Lonely for Each Participant’s Best Model</em>
+<span id="tab:unnamed-chunk-45">Table 6.1: </span><strong>Table SX</strong><br><em>Feature Set and AUC for Predicting Lonely for Each Participant’s Best Model</em>
 </caption>
 <thead>
 <tr>
@@ -7183,7 +7183,7 @@ Psychological, No Time
 <span id="cb73-32"><a href="summarizing-models.html#cb73-32" aria-hidden="true" tabindex="-1"></a>bm_tab</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption>
-<span id="tab:unnamed-chunk-42">Table 6.2: </span><strong>Table X</strong><br><em>Descriptive Statistics of Model Performance Across of the Best Performing Model for Each Participant</em>
+<span id="tab:unnamed-chunk-50">Table 6.2: </span><strong>Table X</strong><br><em>Descriptive Statistics of Model Performance Across of the Best Performing Model for Each Participant</em>
 </caption>
 <thead>
 <tr>
@@ -7543,14 +7543,16 @@ AUC
 <span id="cb74-102"><a href="summarizing-models.html#cb74-102" aria-hidden="true" tabindex="-1"></a>bm_lonely <span class="ot">&lt;-</span> <span class="fu">plot_grid</span>(ttl, bm_lonely, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">rel_heights =</span> <span class="fu">c</span>(.<span class="dv">05</span>,.<span class="dv">95</span>))</span>
 <span id="cb74-103"><a href="summarizing-models.html#cb74-103" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb74-104"><a href="summarizing-models.html#cb74-104" aria-hidden="true" tabindex="-1"></a>bm_plot <span class="ot">&lt;-</span> <span class="fu">plot_grid</span>(bm_prcrst, bm_lonely, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">rel_widths =</span> <span class="fu">c</span>(.<span class="dv">55</span>, .<span class="dv">45</span>)); bm_plot</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-43"></span>
-<img src="book_files/figure-html/unnamed-chunk-43-1.png" alt="Histograms of classification accuracy and Area Under the Receiver Operator Curve (AUC) for participants’ best models." width="1152" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-51"></span>
+<img src="book_files/figure-html/unnamed-chunk-51-1.png" alt="Histograms of classification accuracy and Area Under the Receiver Operator Curve (AUC) for participants’ best models." width="1152" />
 <p class="caption">
 Figure 6.1: Histograms of classification accuracy and Area Under the Receiver Operator Curve (AUC) for participants’ best models.
 </p>
 </div>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="summarizing-models.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(bm_plot, <span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/fig-1-best-models.pdf&quot;</span>, local_path)</span>
-<span id="cb75-2"><a href="summarizing-models.html#cb75-2" aria-hidden="true" tabindex="-1"></a>       , <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code></pre></div>
+<span id="cb75-2"><a href="summarizing-models.html#cb75-2" aria-hidden="true" tabindex="-1"></a>       , <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">5</span>)</span>
+<span id="cb75-3"><a href="summarizing-models.html#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(bm_plot, <span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/fig-1-best-models.png&quot;</span>, local_path)</span>
+<span id="cb75-4"><a href="summarizing-models.html#cb75-4" aria-hidden="true" tabindex="-1"></a>       , <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code></pre></div>
 <p>Figure 1 presents histograms and descriptive statistics of accuracy and AUC across the full sample for each outcome and model. As is clear in the figure, predictive accuracy was high overall, with mean accuracy of .87 (Median .91 to .92) for loneliness and between .82 and .83 (Median .88 to .89) for procrastination. Similarly, AUC was also well above the .5 threshold with means ranging from .70 to .76 (Median .75 to .80) for loneliness and .69 to .70 (Median .70 to .75) for procrastination.</p>
 </div>
 </div>
@@ -7615,7 +7617,7 @@ Figure 6.1: Histograms of classification accuracy and Area Under the Receiver Op
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="summarizing-models.html#cb77-1" aria-hidden="true" tabindex="-1"></a>(tuning_param <span class="sc">%&gt;%</span> <span class="fu">filter</span>(model <span class="sc">==</span> <span class="st">&quot;glmnet&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;prcrst&quot;</span>))<span class="sc">$</span>tab[[<span class="dv">1</span>]]</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-44">Table 6.3: </span><strong>Table X</strong><br><em>Tuning Parameters, Final Number of Non-Zero Features, and Classifications Accuracy for Each Participants’ Best Model of Procrastinating Using Elastic Net</em>
+<span id="tab:unnamed-chunk-52">Table 6.3: </span><strong>Table X</strong><br><em>Tuning Parameters, Final Number of Non-Zero Features, and Classifications Accuracy for Each Participants’ Best Model of Procrastinating Using Elastic Net</em>
 </caption>
 <thead>
 <tr>
@@ -9288,7 +9290,7 @@ Full, Time
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="summarizing-models.html#cb78-1" aria-hidden="true" tabindex="-1"></a>(tuning_param <span class="sc">%&gt;%</span> <span class="fu">filter</span>(model <span class="sc">==</span> <span class="st">&quot;glmnet&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;lonely&quot;</span>))<span class="sc">$</span>tab[[<span class="dv">1</span>]]</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-44">Table 6.3: </span><strong>Table X</strong><br><em>Tuning Parameters, Final Number of Non-Zero Features, and Classifications Accuracy for Each Participants’ Best Model of Lonely Using Elastic Net</em>
+<span id="tab:unnamed-chunk-52">Table 6.3: </span><strong>Table X</strong><br><em>Tuning Parameters, Final Number of Non-Zero Features, and Classifications Accuracy for Each Participants’ Best Model of Lonely Using Elastic Net</em>
 </caption>
 <thead>
 <tr>
@@ -10325,7 +10327,7 @@ Full, No Time
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="summarizing-models.html#cb79-1" aria-hidden="true" tabindex="-1"></a>(tuning_param <span class="sc">%&gt;%</span> <span class="fu">filter</span>(model <span class="sc">==</span> <span class="st">&quot;biscwit&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;prcrst&quot;</span>))<span class="sc">$</span>tab[[<span class="dv">1</span>]]</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-44">Table 6.3: </span><strong>Table X</strong><br><em>Tuning Parameters, Final Number of Non-Zero Features, and Classifications Accuracy for Each Participants’ Best Model of Procrastinating Using BISCWIT</em>
+<span id="tab:unnamed-chunk-52">Table 6.3: </span><strong>Table X</strong><br><em>Tuning Parameters, Final Number of Non-Zero Features, and Classifications Accuracy for Each Participants’ Best Model of Procrastinating Using BISCWIT</em>
 </caption>
 <thead>
 <tr>
@@ -11851,7 +11853,7 @@ Full, No Time
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="summarizing-models.html#cb80-1" aria-hidden="true" tabindex="-1"></a>(tuning_param <span class="sc">%&gt;%</span> <span class="fu">filter</span>(model <span class="sc">==</span> <span class="st">&quot;biscwit&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;lonely&quot;</span>))<span class="sc">$</span>tab[[<span class="dv">1</span>]]</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-44">Table 6.3: </span><strong>Table X</strong><br><em>Tuning Parameters, Final Number of Non-Zero Features, and Classifications Accuracy for Each Participants’ Best Model of Lonely Using BISCWIT</em>
+<span id="tab:unnamed-chunk-52">Table 6.3: </span><strong>Table X</strong><br><em>Tuning Parameters, Final Number of Non-Zero Features, and Classifications Accuracy for Each Participants’ Best Model of Lonely Using BISCWIT</em>
 </caption>
 <thead>
 <tr>
@@ -12734,7 +12736,7 @@ Full, No Time
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="summarizing-models.html#cb81-1" aria-hidden="true" tabindex="-1"></a>(tuning_param <span class="sc">%&gt;%</span> <span class="fu">filter</span>(model <span class="sc">==</span> <span class="st">&quot;rf&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;prcrst&quot;</span>))<span class="sc">$</span>tab[[<span class="dv">1</span>]]</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-44">Table 6.3: </span><strong>Table X</strong><br><em>Tuning Parameters, Final Number of Non-Zero Features, and Classifications Accuracy for Each Participants’ Best Model of Procrastinating Using Random Forest</em>
+<span id="tab:unnamed-chunk-52">Table 6.3: </span><strong>Table X</strong><br><em>Tuning Parameters, Final Number of Non-Zero Features, and Classifications Accuracy for Each Participants’ Best Model of Procrastinating Using Random Forest</em>
 </caption>
 <thead>
 <tr>
@@ -14506,7 +14508,7 @@ Full, No Time
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="summarizing-models.html#cb82-1" aria-hidden="true" tabindex="-1"></a>(tuning_param <span class="sc">%&gt;%</span> <span class="fu">filter</span>(model <span class="sc">==</span> <span class="st">&quot;biscwit&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;lonely&quot;</span>))<span class="sc">$</span>tab[[<span class="dv">1</span>]]</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-44">Table 6.3: </span><strong>Table X</strong><br><em>Tuning Parameters, Final Number of Non-Zero Features, and Classifications Accuracy for Each Participants’ Best Model of Lonely Using BISCWIT</em>
+<span id="tab:unnamed-chunk-52">Table 6.3: </span><strong>Table X</strong><br><em>Tuning Parameters, Final Number of Non-Zero Features, and Classifications Accuracy for Each Participants’ Best Model of Lonely Using BISCWIT</em>
 </caption>
 <thead>
 <tr>
@@ -15403,24 +15405,23 @@ Full, No Time
 <span id="cb83-21"><a href="summarizing-models.html#cb83-21" aria-hidden="true" tabindex="-1"></a>         , <span class="at">param =</span> <span class="fu">factor</span>(param, <span class="fu">c</span>(<span class="st">&quot;accuracy&quot;</span>, <span class="st">&quot;roc_auc&quot;</span>, <span class="st">&quot;penalty&quot;</span>, <span class="st">&quot;mixture&quot;</span>, <span class="st">&quot;nitem&quot;</span>, <span class="st">&quot;min_n&quot;</span>, <span class="st">&quot;mtry&quot;</span>, <span class="st">&quot;nvars&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;Accuracy&quot;</span>, <span class="st">&quot;AUC&quot;</span>, <span class="st">&quot;Penalty&quot;</span>, <span class="st">&quot;Mixture&quot;</span>, <span class="st">&quot;# Items&quot;</span>, <span class="st">&quot;Min N Split&quot;</span>, <span class="st">&quot;# Predictors Samples&quot;</span>, <span class="st">&quot;# Features Selected&quot;</span>))) <span class="sc">%&gt;%</span></span>
 <span id="cb83-22"><a href="summarizing-models.html#cb83-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(model, param)</span></code></pre></div>
 <pre><code>## # A tibble: 14 x 14
-##    model    param      lonely_full_mean lonely_psychologic… lonely_situations… prcrst_full_mean prcrst_psychologic…
-##    &lt;fct&gt;    &lt;fct&gt;      &lt;chr&gt;            &lt;chr&gt;               &lt;chr&gt;              &lt;chr&gt;            &lt;chr&gt;              
-##  1 Elastic… Accuracy   0.89 (0.08)      0.84 (0.11)         0.79 (0.13)        0.84 (0.12)      0.78 (0.15)        
-##  2 Elastic… AUC        0.73 (0.25)      0.75 (0.15)         0.73 (0.18)        0.74 (0.17)      0.62 (0.21)        
-##  3 Elastic… Penalty    0.10 (0.29)      0.19 (0.39)         0.24 (0.42)        0.18 (0.38)      0.32 (0.46)        
-##  4 Elastic… Mixture    0.05 (0.18)      0.08 (0.25)         0.05 (0.13)        0.08 (0.19)      0.08 (0.22)        
-##  5 Elastic… # Feature… 47.82 (8.01)     30.19 (8.64)        28.18 (8.52)       46.74 (9.10)     29.28 (8.10)       
-##  6 BISCWIT  Accuracy   0.90 (0.07)      0.81 (0.08)         0.80 (0.12)        0.83 (0.11)      0.79 (0.14)        
-##  7 BISCWIT  AUC        0.77 (0.18)      0.70 (0.21)         0.69 (0.22)        0.79 (0.12)      0.69 (0.20)        
-##  8 BISCWIT  # Items    10.69 (11.03)    8.88 (7.52)         6.50 (4.90)        12.08 (11.58)    10.47 (8.34)       
-##  9 BISCWIT  # Feature… 11.18 (9.98)     9.44 (7.08)         7.42 (4.21)        12.28 (9.85)     10.35 (6.72)       
-## 10 Random … Accuracy   0.84 (0.09)      0.83 (0.14)         0.91 (0.06)        0.83 (0.11)      0.82 (0.15)        
-## 11 Random … AUC        0.82 (0.11)      0.79 (0.16)         0.70 (0.19)        0.73 (0.17)      0.64 (0.20)        
-## 12 Random … Min N Spl… 16.91 (13.34)    19.18 (14.82)       13.66 (10.65)      16.84 (12.30)    17.21 (12.35)      
-## 13 Random … # Predict… 25.73 (15.98)    12.18 (7.60)        14.71 (7.45)       28.02 (15.91)    16.52 (9.50)       
-## 14 Random … # Feature… 58.82 (28.28)    38.88 (22.69)       28.09 (13.39)      53.12 (34.54)    35.28 (24.01)      
-## # … with 7 more variables: prcrst_situations_mean &lt;chr&gt;, lonely_full_range &lt;chr&gt;,
-## #   lonely_psychological_range &lt;chr&gt;, lonely_situations_range &lt;chr&gt;, prcrst_full_range &lt;chr&gt;,
+##    model    param      lonely_full_mean lonely_psychologic… lonely_situations… prcrst_full_mean prcrst_psychologi… prcrst_situation… lonely_full_ran…
+##    &lt;fct&gt;    &lt;fct&gt;      &lt;chr&gt;            &lt;chr&gt;               &lt;chr&gt;              &lt;chr&gt;            &lt;chr&gt;              &lt;chr&gt;             &lt;chr&gt;           
+##  1 Elastic… Accuracy   0.89 (0.08)      0.84 (0.11)         0.79 (0.13)        0.84 (0.12)      0.78 (0.15)        0.78 (0.11)       0.65-0.96       
+##  2 Elastic… AUC        0.73 (0.25)      0.75 (0.15)         0.73 (0.18)        0.74 (0.17)      0.62 (0.21)        0.70 (0.16)       0.08-0.93       
+##  3 Elastic… Penalty    0.10 (0.29)      0.19 (0.39)         0.24 (0.42)        0.18 (0.38)      0.32 (0.46)        0.39 (0.48)       0.00-1.00       
+##  4 Elastic… Mixture    0.05 (0.18)      0.08 (0.25)         0.05 (0.13)        0.08 (0.19)      0.08 (0.22)        0.13 (0.29)       0.00-1.00       
+##  5 Elastic… # Feature… 47.82 (8.01)     30.19 (8.64)        28.18 (8.52)       46.74 (9.10)     29.28 (8.10)       24.53 (8.48)      19.00-65.00     
+##  6 BISCWIT  Accuracy   0.90 (0.07)      0.81 (0.08)         0.80 (0.12)        0.83 (0.11)      0.79 (0.14)        0.78 (0.12)       0.69-0.96       
+##  7 BISCWIT  AUC        0.77 (0.18)      0.70 (0.21)         0.69 (0.22)        0.79 (0.12)      0.69 (0.20)        0.67 (0.17)       0.42-0.97       
+##  8 BISCWIT  # Items    10.69 (11.03)    8.88 (7.52)         6.50 (4.90)        12.08 (11.58)    10.47 (8.34)       8.68 (7.13)       3.00-36.00      
+##  9 BISCWIT  # Feature… 11.18 (9.98)     9.44 (7.08)         7.42 (4.21)        12.28 (9.85)     10.35 (6.72)       8.78 (5.75)       4.00-35.00      
+## 10 Random … Accuracy   0.84 (0.09)      0.83 (0.14)         0.91 (0.06)        0.83 (0.11)      0.82 (0.15)        0.84 (0.12)       0.65-0.93       
+## 11 Random … AUC        0.82 (0.11)      0.79 (0.16)         0.70 (0.19)        0.73 (0.17)      0.64 (0.20)        0.74 (0.14)       0.50-0.95       
+## 12 Random … Min N Spl… 16.91 (13.34)    19.18 (14.82)       13.66 (10.65)      16.84 (12.30)    17.21 (12.35)      17.16 (13.58)     3.00-40.00      
+## 13 Random … # Predict… 25.73 (15.98)    12.18 (7.60)        14.71 (7.45)       28.02 (15.91)    16.52 (9.50)       12.78 (9.60)      2.00-75.00      
+## 14 Random … # Feature… 58.82 (28.28)    38.88 (22.69)       28.09 (13.39)      53.12 (34.54)    35.28 (24.01)      32.35 (15.37)     0.00-106.00     
+## # … with 5 more variables: lonely_psychological_range &lt;chr&gt;, lonely_situations_range &lt;chr&gt;, prcrst_full_range &lt;chr&gt;,
 ## #   prcrst_psychological_range &lt;chr&gt;, prcrst_situations_range &lt;chr&gt;</code></pre>
 </div>
 </div>
@@ -15491,7 +15492,7 @@ Full, No Time
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:750px; ">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-52">Table 6.4: </span><strong>Table SX</strong><br><em>Descriptive Statistics of Model Performance for Each Participant for prcrst</em>
+<span id="tab:unnamed-chunk-60">Table 6.4: </span><strong>Table SX</strong><br><em>Descriptive Statistics of Model Performance for Each Participant for prcrst</em>
 </caption>
 <thead>
 <tr>
@@ -19583,7 +19584,7 @@ Range
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:750px; ">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-52">Table 6.4: </span><strong>Table SX</strong><br><em>Descriptive Statistics of Model Performance for Each Participant for lonely</em>
+<span id="tab:unnamed-chunk-60">Table 6.4: </span><strong>Table SX</strong><br><em>Descriptive Statistics of Model Performance for Each Participant for lonely</em>
 </caption>
 <thead>
 <tr>
@@ -22131,27 +22132,30 @@ Range
 <span id="cb88-73"><a href="summarizing-models.html#cb88-73" aria-hidden="true" tabindex="-1"></a>                   , <span class="at">nrow =</span> <span class="dv">2</span>)</span>
 <span id="cb88-74"><a href="summarizing-models.html#cb88-74" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(p, <span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/fig-2-accuracy.pdf&quot;</span></span>
 <span id="cb88-75"><a href="summarizing-models.html#cb88-75" aria-hidden="true" tabindex="-1"></a>                           , local_path)</span>
-<span id="cb88-76"><a href="summarizing-models.html#cb88-76" aria-hidden="true" tabindex="-1"></a>       , <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">10</span>)</span></code></pre></div>
+<span id="cb88-76"><a href="summarizing-models.html#cb88-76" aria-hidden="true" tabindex="-1"></a>       , <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">10</span>)</span>
+<span id="cb88-77"><a href="summarizing-models.html#cb88-77" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(p, <span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/fig-2-accuracy.png&quot;</span></span>
+<span id="cb88-78"><a href="summarizing-models.html#cb88-78" aria-hidden="true" tabindex="-1"></a>                           , local_path)</span>
+<span id="cb88-79"><a href="summarizing-models.html#cb88-79" aria-hidden="true" tabindex="-1"></a>       , <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p>Figure 2 in the manuscript is the combination of the classification accuracy graphs below. Each of the figures below present the median, 66%, and 95% range of classification accuracy for a random sample of 25 participants, ordered by the median accuracy (AUC is available in the online materials and webapp [“Model Performance Distributions”]). As is clear in the figures, accuracy varies both across people and within them. In other words, although there are between-person differences in the degree of accuracy, there are also within-person differences, depending on which features are used.</p>
 <div id="procrastination-accuracy-1" class="section level5" number="6.2.1.2.1">
 <h5><span class="header-section-number">6.2.1.2.1</span> Procrastination, Accuracy</h5>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="summarizing-models.html#cb89-1" aria-hidden="true" tabindex="-1"></a>px_plots_sum<span class="sc">$</span>p[[<span class="dv">3</span>]]</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-56-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-64-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="procrastination-auc-1" class="section level5" number="6.2.1.2.2">
 <h5><span class="header-section-number">6.2.1.2.2</span> Procrastination, AUC</h5>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="summarizing-models.html#cb90-1" aria-hidden="true" tabindex="-1"></a>px_plots_sum<span class="sc">$</span>p[[<span class="dv">4</span>]] </span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-57-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-65-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="loneliness-accuracy-1" class="section level5" number="6.2.1.2.3">
 <h5><span class="header-section-number">6.2.1.2.3</span> Loneliness, Accuracy</h5>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="summarizing-models.html#cb91-1" aria-hidden="true" tabindex="-1"></a>px_plots_sum<span class="sc">$</span>p[[<span class="dv">1</span>]]</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-58-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-66-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="loneliness-auc-1" class="section level5" number="6.2.1.2.4">
 <h5><span class="header-section-number">6.2.1.2.4</span> Loneliness, AUC</h5>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="summarizing-models.html#cb92-1" aria-hidden="true" tabindex="-1"></a>px_plots_sum<span class="sc">$</span>p[[<span class="dv">2</span>]] </span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-59-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-67-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
@@ -22202,7 +22206,7 @@ Range
 <span id="cb93-37"><a href="summarizing-models.html#cb93-37" aria-hidden="true" tabindex="-1"></a>fps_tab</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-60">Table 6.5: </span><strong>Table 1</strong><br><em>Frequencies of the Full, Psychological, and Situation Feature Sets with or Without Time Being the Best Model for a Participant</em>
+<span id="tab:unnamed-chunk-68">Table 6.5: </span><strong>Table 1</strong><br><em>Frequencies of the Full, Psychological, and Situation Feature Sets with or Without Time Being the Best Model for a Participant</em>
 </caption>
 <thead>
 <tr>
@@ -22955,8 +22959,8 @@ Yes
 <span id="cb94-109"><a href="summarizing-models.html#cb94-109" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb94-110"><a href="summarizing-models.html#cb94-110" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">plot_grid</span>(p1, p2, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">rel_heights =</span> <span class="fu">c</span>(.<span class="dv">6</span>, .<span class="dv">4</span>))</span>
 <span id="cb94-111"><a href="summarizing-models.html#cb94-111" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">plot_grid</span>(p, legend, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">rel_heights =</span> <span class="fu">c</span>(.<span class="dv">95</span>, .<span class="dv">05</span>)); p</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-61"></span>
-<img src="book_files/figure-html/unnamed-chunk-61-1.png" alt="Figure 3. Sequence plots of the percentage of features from the Psychological, Situational, and Time Features Sets for each participant for each outcome." width="768" />
+<div class="figure"><span id="fig:unnamed-chunk-69"></span>
+<img src="book_files/figure-html/unnamed-chunk-69-1.png" alt="Figure 3. Sequence plots of the percentage of features from the Psychological, Situational, and Time Features Sets for each participant for each outcome." width="768" />
 <p class="caption">
 Figure 6.2: Figure 3. Sequence plots of the percentage of features from the Psychological, Situational, and Time Features Sets for each participant for each outcome.
 </p>
@@ -22984,36 +22988,42 @@ Figure 6.2: Figure 3. Sequence plots of the percentage of features from the Psyc
 <span id="cb96-4"><a href="summarizing-models.html#cb96-4" aria-hidden="true" tabindex="-1"></a>               <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">&quot;accuracy&quot;</span>)</span>
 <span id="cb96-5"><a href="summarizing-models.html#cb96-5" aria-hidden="true" tabindex="-1"></a>             ) <span class="sc">%&gt;%</span></span>
 <span id="cb96-6"><a href="summarizing-models.html#cb96-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">map_lgl</span>(coefs, is.null) <span class="sc">==</span> F) <span class="sc">%&gt;%</span></span>
-<span id="cb96-7"><a href="summarizing-models.html#cb96-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">coefs =</span> <span class="fu">map</span>(coefs, <span class="sc">~</span>(.) <span class="sc">%&gt;%</span> <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> <span class="fu">rownames_to_column</span>(<span class="st">&quot;Variable&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">&quot;Variable&quot;</span>, <span class="st">&quot;coef&quot;</span>)))) <span class="sc">%&gt;%</span></span>
-<span id="cb96-8"><a href="summarizing-models.html#cb96-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>params) <span class="sc">%&gt;%</span> </span>
-<span id="cb96-9"><a href="summarizing-models.html#cb96-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(coefs) <span class="sc">%&gt;%</span></span>
-<span id="cb96-10"><a href="summarizing-models.html#cb96-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Variable =</span> <span class="fu">str_remove_all</span>(Variable, <span class="st">&quot;_X1&quot;</span>),</span>
-<span id="cb96-11"><a href="summarizing-models.html#cb96-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Variable =</span> <span class="fu">str_remove_all</span>(Variable, <span class="st">&quot;_1&quot;</span>),</span>
-<span id="cb96-12"><a href="summarizing-models.html#cb96-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">Variable =</span> <span class="fu">str_remove_all</span>(Variable, <span class="st">&quot;_2&quot;</span>),</span>
-<span id="cb96-13"><a href="summarizing-models.html#cb96-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">Variable =</span> <span class="fu">str_replace_all</span>(Variable, <span class="st">&quot;[.]&quot;</span>, <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb96-14"><a href="summarizing-models.html#cb96-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(coef <span class="sc">!=</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb96-15"><a href="summarizing-models.html#cb96-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># select(-.) %&gt;%</span></span>
-<span id="cb96-16"><a href="summarizing-models.html#cb96-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(model, SID, outcome) <span class="sc">%&gt;%</span> </span>
-<span id="cb96-17"><a href="summarizing-models.html#cb96-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="fu">abs</span>(coef))) <span class="sc">%&gt;%</span></span>
-<span id="cb96-18"><a href="summarizing-models.html#cb96-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="fu">abs</span>(coef), <span class="at">n =</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb96-19"><a href="summarizing-models.html#cb96-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(model, outcome) <span class="sc">%&gt;%</span></span>
-<span id="cb96-20"><a href="summarizing-models.html#cb96-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">N =</span> <span class="fu">length</span>(<span class="fu">unique</span>(SID))) <span class="sc">%&gt;%</span></span>
-<span id="cb96-21"><a href="summarizing-models.html#cb96-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(model, outcome, Variable, N) <span class="sc">%&gt;%</span></span>
-<span id="cb96-22"><a href="summarizing-models.html#cb96-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb96-23"><a href="summarizing-models.html#cb96-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb96-24"><a href="summarizing-models.html#cb96-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> n<span class="sc">/</span>N<span class="sc">*</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb96-25"><a href="summarizing-models.html#cb96-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(ftrs <span class="sc">%&gt;%</span> </span>
-<span id="cb96-26"><a href="summarizing-models.html#cb96-26" aria-hidden="true" tabindex="-1"></a>              <span class="fu">select</span>(group, <span class="at">Variable =</span> old_name, new_name) <span class="sc">%&gt;%</span></span>
-<span id="cb96-27"><a href="summarizing-models.html#cb96-27" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">str_to_title</span>(group)) <span class="sc">%&gt;%</span></span>
-<span id="cb96-28"><a href="summarizing-models.html#cb96-28" aria-hidden="true" tabindex="-1"></a>              <span class="fu">group_by</span>(group) <span class="sc">%&gt;%</span></span>
-<span id="cb96-29"><a href="summarizing-models.html#cb96-29" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mutate</span>(<span class="at">ni =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>(), </span>
-<span id="cb96-30"><a href="summarizing-models.html#cb96-30" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ni =</span> <span class="fu">ifelse</span>(ni <span class="sc">&lt;</span> <span class="dv">10</span>, <span class="fu">paste0</span>(<span class="st">&quot;0&quot;</span>, ni), ni),</span>
-<span id="cb96-31"><a href="summarizing-models.html#cb96-31" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Variable2 =</span> <span class="fu">paste0</span>(<span class="fu">substr</span>(group, <span class="dv">1</span>, <span class="dv">1</span>), ni)</span>
-<span id="cb96-32"><a href="summarizing-models.html#cb96-32" aria-hidden="true" tabindex="-1"></a>              ) <span class="sc">%&gt;%</span></span>
-<span id="cb96-33"><a href="summarizing-models.html#cb96-33" aria-hidden="true" tabindex="-1"></a>              <span class="fu">ungroup</span>()</span>
-<span id="cb96-34"><a href="summarizing-models.html#cb96-34" aria-hidden="true" tabindex="-1"></a>            ) <span class="sc">%&gt;%</span></span>
-<span id="cb96-35"><a href="summarizing-models.html#cb96-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(group)) <span class="sc">%&gt;%</span></span>
-<span id="cb96-36"><a href="summarizing-models.html#cb96-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span></code></pre></div>
+<span id="cb96-7"><a href="summarizing-models.html#cb96-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">coefs =</span> <span class="fu">map</span>(coefs, <span class="sc">~</span>(.) <span class="sc">%&gt;%</span> </span>
+<span id="cb96-8"><a href="summarizing-models.html#cb96-8" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb96-9"><a href="summarizing-models.html#cb96-9" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">rownames_to_column</span>(<span class="st">&quot;Variable&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb96-10"><a href="summarizing-models.html#cb96-10" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">&quot;Variable&quot;</span>, <span class="st">&quot;coef&quot;</span>)))</span>
+<span id="cb96-11"><a href="summarizing-models.html#cb96-11" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span></span>
+<span id="cb96-12"><a href="summarizing-models.html#cb96-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>params) <span class="sc">%&gt;%</span> </span>
+<span id="cb96-13"><a href="summarizing-models.html#cb96-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(coefs) <span class="sc">%&gt;%</span></span>
+<span id="cb96-14"><a href="summarizing-models.html#cb96-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Variable =</span> <span class="fu">str_remove_all</span>(Variable, <span class="st">&quot;_X1&quot;</span>),</span>
+<span id="cb96-15"><a href="summarizing-models.html#cb96-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">Variable =</span> <span class="fu">str_remove_all</span>(Variable, <span class="st">&quot;_1&quot;</span>),</span>
+<span id="cb96-16"><a href="summarizing-models.html#cb96-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">Variable =</span> <span class="fu">str_remove_all</span>(Variable, <span class="st">&quot;_2&quot;</span>),</span>
+<span id="cb96-17"><a href="summarizing-models.html#cb96-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">Variable =</span> <span class="fu">str_replace_all</span>(Variable, <span class="st">&quot;[.]&quot;</span>, <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb96-18"><a href="summarizing-models.html#cb96-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(coef <span class="sc">!=</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb96-19"><a href="summarizing-models.html#cb96-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># select(-.) %&gt;%</span></span>
+<span id="cb96-20"><a href="summarizing-models.html#cb96-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(model, SID, outcome) <span class="sc">%&gt;%</span> </span>
+<span id="cb96-21"><a href="summarizing-models.html#cb96-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="fu">abs</span>(coef))) <span class="sc">%&gt;%</span></span>
+<span id="cb96-22"><a href="summarizing-models.html#cb96-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="fu">abs</span>(coef), <span class="at">n =</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb96-23"><a href="summarizing-models.html#cb96-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(model, outcome) <span class="sc">%&gt;%</span></span>
+<span id="cb96-24"><a href="summarizing-models.html#cb96-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">N =</span> <span class="fu">length</span>(<span class="fu">unique</span>(SID))) <span class="sc">%&gt;%</span></span>
+<span id="cb96-25"><a href="summarizing-models.html#cb96-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(model, outcome, Variable, N) <span class="sc">%&gt;%</span></span>
+<span id="cb96-26"><a href="summarizing-models.html#cb96-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb96-27"><a href="summarizing-models.html#cb96-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb96-28"><a href="summarizing-models.html#cb96-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> n<span class="sc">/</span>N<span class="sc">*</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb96-29"><a href="summarizing-models.html#cb96-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(<span class="fu">crossing</span>(<span class="at">model =</span> <span class="fu">c</span>(<span class="st">&quot;biscwit&quot;</span>, <span class="st">&quot;glmnet&quot;</span>, <span class="st">&quot;rf&quot;</span>), </span>
+<span id="cb96-30"><a href="summarizing-models.html#cb96-30" aria-hidden="true" tabindex="-1"></a>                      <span class="at">outcome =</span> <span class="fu">c</span>(<span class="st">&quot;lonely&quot;</span>, <span class="st">&quot;prcrst&quot;</span>),</span>
+<span id="cb96-31"><a href="summarizing-models.html#cb96-31" aria-hidden="true" tabindex="-1"></a>              ftrs <span class="sc">%&gt;%</span> </span>
+<span id="cb96-32"><a href="summarizing-models.html#cb96-32" aria-hidden="true" tabindex="-1"></a>              <span class="fu">select</span>(group, <span class="at">Variable =</span> old_name, new_name) <span class="sc">%&gt;%</span></span>
+<span id="cb96-33"><a href="summarizing-models.html#cb96-33" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">str_to_title</span>(group)) <span class="sc">%&gt;%</span></span>
+<span id="cb96-34"><a href="summarizing-models.html#cb96-34" aria-hidden="true" tabindex="-1"></a>              <span class="fu">group_by</span>(group) <span class="sc">%&gt;%</span></span>
+<span id="cb96-35"><a href="summarizing-models.html#cb96-35" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mutate</span>(<span class="at">ni =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>(), </span>
+<span id="cb96-36"><a href="summarizing-models.html#cb96-36" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ni =</span> <span class="fu">ifelse</span>(ni <span class="sc">&lt;</span> <span class="dv">10</span>, <span class="fu">paste0</span>(<span class="st">&quot;0&quot;</span>, ni), ni),</span>
+<span id="cb96-37"><a href="summarizing-models.html#cb96-37" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Variable2 =</span> <span class="fu">paste0</span>(<span class="fu">substr</span>(group, <span class="dv">1</span>, <span class="dv">1</span>), ni)</span>
+<span id="cb96-38"><a href="summarizing-models.html#cb96-38" aria-hidden="true" tabindex="-1"></a>              ) <span class="sc">%&gt;%</span></span>
+<span id="cb96-39"><a href="summarizing-models.html#cb96-39" aria-hidden="true" tabindex="-1"></a>              <span class="fu">ungroup</span>())</span>
+<span id="cb96-40"><a href="summarizing-models.html#cb96-40" aria-hidden="true" tabindex="-1"></a>            ) <span class="sc">%&gt;%</span></span>
+<span id="cb96-41"><a href="summarizing-models.html#cb96-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(group)) <span class="sc">%&gt;%</span></span>
+<span id="cb96-42"><a href="summarizing-models.html#cb96-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() </span></code></pre></div>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="summarizing-models.html#cb97-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> var_freq <span class="sc">%&gt;%</span></span>
 <span id="cb97-2"><a href="summarizing-models.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(outcome <span class="sc">==</span> <span class="st">&quot;prcrst&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb97-3"><a href="summarizing-models.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">model2 =</span> <span class="fu">as.numeric</span>(<span class="fu">mapvalues</span>(model, <span class="fu">c</span>(<span class="st">&quot;glmnet&quot;</span>, <span class="st">&quot;biscwit&quot;</span>, <span class="st">&quot;rf&quot;</span>), <span class="fu">seq</span>(<span class="dv">5</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">2</span>))),</span>
@@ -23213,7 +23223,7 @@ Figure 6.2: Figure 3. Sequence plots of the percentage of features from the Psyc
 <span id="cb97-197"><a href="summarizing-models.html#cb97-197" aria-hidden="true" tabindex="-1"></a>           <span class="at">names =</span> <span class="fu">paste0</span>(Variable2, <span class="st">&quot;: &quot;</span>, new_name)) <span class="sc">%&gt;%</span></span>
 <span id="cb97-198"><a href="summarizing-models.html#cb97-198" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(Variable2) <span class="sc">%&gt;%</span></span>
 <span id="cb97-199"><a href="summarizing-models.html#cb97-199" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">names =</span> <span class="fu">factor</span>(names, .<span class="sc">$</span>names)) <span class="sc">%&gt;%</span></span>
-<span id="cb97-200"><a href="summarizing-models.html#cb97-200" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">66</span>)) <span class="sc">+</span></span>
+<span id="cb97-200"><a href="summarizing-models.html#cb97-200" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">67</span>)) <span class="sc">+</span></span>
 <span id="cb97-201"><a href="summarizing-models.html#cb97-201" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">rev</span>(names)), <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
 <span id="cb97-202"><a href="summarizing-models.html#cb97-202" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(.<span class="dv">9999</span>, <span class="fl">1.1</span>))<span class="sc">+</span> </span>
 <span id="cb97-203"><a href="summarizing-models.html#cb97-203" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
@@ -23227,7 +23237,7 @@ Figure 6.2: Figure 3. Sequence plots of the percentage of features from the Psyc
 <span id="cb97-211"><a href="summarizing-models.html#cb97-211" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">plot_grid</span>(p1, p2, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">rel_heights =</span> <span class="fu">c</span>(.<span class="dv">53</span>, .<span class="dv">47</span>))</span>
 <span id="cb97-212"><a href="summarizing-models.html#cb97-212" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">plot_grid</span>(p, p3, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">rel_widths =</span> <span class="fu">c</span>(.<span class="dv">65</span>, .<span class="dv">35</span>))</span>
 <span id="cb97-213"><a href="summarizing-models.html#cb97-213" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">plot_grid</span>(p, legend, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">rel_heights =</span> <span class="fu">c</span>(.<span class="dv">95</span>, .<span class="dv">05</span>)); p</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="summarizing-models.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(p, <span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/fig-4-combined_top5.pdf&quot;</span>, local_path)</span>
 <span id="cb98-2"><a href="summarizing-models.html#cb98-2" aria-hidden="true" tabindex="-1"></a>       , <span class="at">height =</span> <span class="dv">12</span> , <span class="at">width =</span> <span class="dv">9</span>)</span>
 <span id="cb98-3"><a href="summarizing-models.html#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(p, <span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/fig-4-combined_top5.png&quot;</span>, local_path)</span>
@@ -23307,18 +23317,18 @@ Figure 6.2: Figure 3. Sequence plots of the percentage of features from the Psyc
 <span id="cb99-60"><a href="summarizing-models.html#cb99-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb99-61"><a href="summarizing-models.html#cb99-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tab =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(data, SID, outcome), <span class="fu">possibly</span>(px_coef_tab_fun, <span class="cn">NA_real_</span>))); px_coef</span></code></pre></div>
 <pre><code>## # A tibble: 140 x 4
-##    SID   outcome data                   tab           
-##    &lt;chr&gt; &lt;chr&gt;   &lt;list&gt;                 &lt;list&gt;        
-##  1 01    prcrst  &lt;tibble[,5] [149 × 5]&gt; &lt;kablExtr [1]&gt;
-##  2 02    prcrst  &lt;tibble[,5] [225 × 5]&gt; &lt;kablExtr [1]&gt;
-##  3 05    prcrst  &lt;tibble[,5] [143 × 5]&gt; &lt;kablExtr [1]&gt;
-##  4 08    lonely  &lt;tibble[,5] [187 × 5]&gt; &lt;kablExtr [1]&gt;
-##  5 09    prcrst  &lt;tibble[,5] [101 × 5]&gt; &lt;kablExtr [1]&gt;
-##  6 10    lonely  &lt;tibble[,5] [94 × 5]&gt;  &lt;kablExtr [1]&gt;
-##  7 103   lonely  &lt;tibble[,5] [141 × 5]&gt; &lt;kablExtr [1]&gt;
-##  8 103   prcrst  &lt;tibble[,5] [166 × 5]&gt; &lt;kablExtr [1]&gt;
-##  9 105   lonely  &lt;tibble[,5] [97 × 5]&gt;  &lt;kablExtr [1]&gt;
-## 10 105   prcrst  &lt;tibble[,5] [185 × 5]&gt; &lt;kablExtr [1]&gt;
+##    SID   outcome data               tab           
+##    &lt;chr&gt; &lt;chr&gt;   &lt;list&gt;             &lt;list&gt;        
+##  1 01    prcrst  &lt;tibble [149 × 5]&gt; &lt;kablExtr [1]&gt;
+##  2 02    prcrst  &lt;tibble [225 × 5]&gt; &lt;kablExtr [1]&gt;
+##  3 05    prcrst  &lt;tibble [143 × 5]&gt; &lt;kablExtr [1]&gt;
+##  4 08    lonely  &lt;tibble [187 × 5]&gt; &lt;kablExtr [1]&gt;
+##  5 09    prcrst  &lt;tibble [101 × 5]&gt; &lt;kablExtr [1]&gt;
+##  6 10    lonely  &lt;tibble [94 × 5]&gt;  &lt;kablExtr [1]&gt;
+##  7 103   lonely  &lt;tibble [141 × 5]&gt; &lt;kablExtr [1]&gt;
+##  8 103   prcrst  &lt;tibble [166 × 5]&gt; &lt;kablExtr [1]&gt;
+##  9 105   lonely  &lt;tibble [97 × 5]&gt;  &lt;kablExtr [1]&gt;
+## 10 105   prcrst  &lt;tibble [185 × 5]&gt; &lt;kablExtr [1]&gt;
 ## # … with 130 more rows</code></pre>
 <p>All of these tables will be contained with the R shiny web app for readers to peruse at their leisure. An in detail description of each is a little beyond the goal and scope of the present study. However, the three sample participants from the manuscript are shown below.</p>
 <p>Notably (and by design), each of these participants differed in the feature set. Participant 169’s best model had the psychological feature set; Participant 43 had the situation feature set; and Participant 160 had the full feature set (psychological + situations).</p>
@@ -23330,7 +23340,7 @@ Figure 6.2: Figure 3. Sequence plots of the percentage of features from the Psyc
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:750px; ">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-64">Table 6.6: </span>Procrastinating Model Coefficients for Participant 169
+<span id="tab:unnamed-chunk-72">Table 6.6: </span>Procrastinating Model Coefficients for Participant 169
 </caption>
 <thead>
 <tr>
@@ -23809,7 +23819,7 @@ Deception
 </tr>
 <tr>
 <td style="text-align:right;padding-left: 2em;" indentlevel="1">
-Sociability
+Sociality
 </td>
 <td style="text-align:center;">
 0
@@ -24313,7 +24323,7 @@ Cubic Trend
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:750px; ">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-64">Table 6.6: </span>Lonely Model Coefficients for Participant 43
+<span id="tab:unnamed-chunk-72">Table 6.6: </span>Lonely Model Coefficients for Participant 43
 </caption>
 <thead>
 <tr>
@@ -24792,7 +24802,7 @@ Deception
 </tr>
 <tr>
 <td style="text-align:right;padding-left: 2em;" indentlevel="1">
-Sociability
+Sociality
 </td>
 <td style="text-align:center;">
 -1.86
@@ -25296,7 +25306,7 @@ Cubic Trend
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:750px; ">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-64">Table 6.6: </span>Procrastinating Model Coefficients for Participant 160
+<span id="tab:unnamed-chunk-72">Table 6.6: </span>Procrastinating Model Coefficients for Participant 160
 </caption>
 <thead>
 <tr>
@@ -25775,7 +25785,7 @@ Deception
 </tr>
 <tr>
 <td style="text-align:right;padding-left: 2em;" indentlevel="1">
-Sociability
+Sociality
 </td>
 <td style="text-align:center;">
 -0.97
@@ -26458,43 +26468,43 @@ Cubic Trend
 <span id="cb104-180"><a href="summarizing-models.html#cb104-180" aria-hidden="true" tabindex="-1"></a>         <span class="at">p =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(data, outcome, group, SID, model)</span>
 <span id="cb104-181"><a href="summarizing-models.html#cb104-181" aria-hidden="true" tabindex="-1"></a>                  , <span class="fu">possibly</span>(coef_plot_fun, <span class="cn">NA_real_</span>)))</span></code></pre></div>
 <p>As before, we’ll show our three example participants. These figures are present in the manuscript as Figures 5-7.</p>
-<div id="participant-169-figure-5" class="section level5" number="6.5.1.2.1">
-<h5><span class="header-section-number">6.5.1.2.1</span> Participant 169 (Figure 5)</h5>
+<div id="participant-169-figure-6" class="section level5" number="6.5.1.2.1">
+<h5><span class="header-section-number">6.5.1.2.1</span> Participant 169 (Figure 6)</h5>
 <p>Participant 169’s best model for procrastination used the psychological feature set without time for each of the three methods (accuracy = 0.94; AUC = 0.80). Variable importance (log odds ratios) for the features in their ENR model are shown in the bar graph in Figure 5. Across all three methods, there were some differences selected features, but consensus in the direction and general magnitude of them. Across all three, the top feature was the Openness to Experience facet Creative Imagination, perhaps indicating that this participant tended to procrastinate when they were feeling more creative or imaginative previously. As in clear in Figure 5, they also tended to procrastinate less when they were Intellectually Curious (O) and more when they felt afraid. Thus, it seems like this participant’s procrastination may partially hinge upon competition between intellectual and creative pursuits, as well general fears.</p>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="summarizing-models.html#cb105-1" aria-hidden="true" tabindex="-1"></a>(px_coef_fig <span class="sc">%&gt;%</span> <span class="fu">filter</span>(outcome <span class="sc">==</span> <span class="st">&quot;prcrst&quot;</span> <span class="sc">&amp;</span> SID <span class="sc">==</span> <span class="st">&quot;169&quot;</span> <span class="sc">&amp;</span> model <span class="sc">==</span> <span class="st">&quot;glmnet&quot;</span>))<span class="sc">$</span>p[[<span class="dv">1</span>]]</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-69"></span>
-<img src="book_files/figure-html/unnamed-chunk-69-1.png" alt="Figure 5. Variable Importance (absolute value of log odds) for Participant 169’s best model predicting Procrastination. Each bar is a different feature. Color indicates feature category (psychological, situational, or time). Height of bars indicates the magnitude of the effect. (-)indicate negative effects (i.e. lower odds)." width="576" />
+<div class="figure"><span id="fig:unnamed-chunk-77"></span>
+<img src="book_files/figure-html/unnamed-chunk-77-1.png" alt="Figure 5. Variable Importance (absolute value of log odds) for Participant 169’s best model predicting Procrastination. Each bar is a different feature. Color indicates feature category (psychological, situational, or time). Height of bars indicates the magnitude of the effect. (-)indicate negative effects (i.e. lower odds)." width="576" />
 <p class="caption">
 Figure 6.3: Figure 5. Variable Importance (absolute value of log odds) for Participant 169’s best model predicting Procrastination. Each bar is a different feature. Color indicates feature category (psychological, situational, or time). Height of bars indicates the magnitude of the effect. (-)indicate negative effects (i.e. lower odds).
 </p>
 </div>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="summarizing-models.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/fig-5-px-169.pdf&quot;</span>, local_path)</span>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="summarizing-models.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/fig-6-px-169.pdf&quot;</span>, local_path)</span>
 <span id="cb106-2"><a href="summarizing-models.html#cb106-2" aria-hidden="true" tabindex="-1"></a>       , <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">8</span>)</span></code></pre></div>
 </div>
-<div id="participant-43-figure-6" class="section level5" number="6.5.1.2.2">
-<h5><span class="header-section-number">6.5.1.2.2</span> Participant 43 (Figure 6)</h5>
+<div id="participant-43-figure-7" class="section level5" number="6.5.1.2.2">
+<h5><span class="header-section-number">6.5.1.2.2</span> Participant 43 (Figure 7)</h5>
 <p>participant 43’s best model for loneliness used the situation feature set (without time; accuracy = 0.91; AUC = 0.83). As in seen in the bar graph of their ENR variable importance in Figure 6, the situation characteristics and features seem to indicate that obligations (e.g., duty, in class), physical health (e.g., sick, sleeping), and social interactions (Sociability, argument) were predictive of future feelings of loneliness. For example, both the situation feature Duty and being in class predicted less loneliness, while feeling sick and getting in an argument predicted more.</p>
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="summarizing-models.html#cb107-1" aria-hidden="true" tabindex="-1"></a>(px_coef_fig <span class="sc">%&gt;%</span> <span class="fu">filter</span>(outcome <span class="sc">==</span> <span class="st">&quot;lonely&quot;</span> <span class="sc">&amp;</span> SID <span class="sc">==</span> <span class="st">&quot;43&quot;</span> <span class="sc">&amp;</span> model <span class="sc">==</span> <span class="st">&quot;glmnet&quot;</span>))<span class="sc">$</span>p[[<span class="dv">1</span>]]</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-70"></span>
-<img src="book_files/figure-html/unnamed-chunk-70-1.png" alt="Figure 6. Variable Importance (absolute value of log odds) for Participant 43’s best model predicting Loneliness. Each bar is a different feature. Color indicates feature category (psychological, situational, or time). Height of bars indicates the magnitude of the effect. (-) indicates negative effects." width="576" />
+<div class="figure"><span id="fig:unnamed-chunk-78"></span>
+<img src="book_files/figure-html/unnamed-chunk-78-1.png" alt="Figure 6. Variable Importance (absolute value of log odds) for Participant 43’s best model predicting Loneliness. Each bar is a different feature. Color indicates feature category (psychological, situational, or time). Height of bars indicates the magnitude of the effect. (-) indicates negative effects." width="576" />
 <p class="caption">
 Figure 6.4: Figure 6. Variable Importance (absolute value of log odds) for Participant 43’s best model predicting Loneliness. Each bar is a different feature. Color indicates feature category (psychological, situational, or time). Height of bars indicates the magnitude of the effect. (-) indicates negative effects.
 </p>
 </div>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="summarizing-models.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/fig-6-px-43.pdf&quot;</span>, local_path)</span>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="summarizing-models.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/fig-7-px-43.pdf&quot;</span>, local_path)</span>
 <span id="cb108-2"><a href="summarizing-models.html#cb108-2" aria-hidden="true" tabindex="-1"></a>       , <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">8</span>)</span></code></pre></div>
 </div>
-<div id="participant-160-figure-7" class="section level5" number="6.5.1.2.3">
-<h5><span class="header-section-number">6.5.1.2.3</span> Participant 160 (Figure 7)</h5>
+<div id="participant-160-figure-8" class="section level5" number="6.5.1.2.3">
+<h5><span class="header-section-number">6.5.1.2.3</span> Participant 160 (Figure 8)</h5>
 <p>Participant 160’s best models for procrastination utilized the full feature set (i.e. psychological and situational features) without time (see Figure 7; accuracy = 0.89, AUC = 0.94). ENR and BISCWIT agreed on the top three features: Sociability (DIAMONDS; negative), Sleeping (positive), and Depression (Neuroticism; negative) were each associated with future procrastination. Moreover, other related features, like attentiveness and Assertiveness (Extraversion), were also predictive of both outcomes.</p>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="summarizing-models.html#cb109-1" aria-hidden="true" tabindex="-1"></a>(px_coef_fig <span class="sc">%&gt;%</span> <span class="fu">filter</span>(outcome <span class="sc">==</span> <span class="st">&quot;prcrst&quot;</span> <span class="sc">&amp;</span> SID <span class="sc">==</span> <span class="st">&quot;160&quot;</span> <span class="sc">&amp;</span> model <span class="sc">==</span> <span class="st">&quot;glmnet&quot;</span>))<span class="sc">$</span>p[[<span class="dv">1</span>]]</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-71"></span>
-<img src="book_files/figure-html/unnamed-chunk-71-1.png" alt="Figure 7. Variable Importance (absolute value of log odds) for Participant 160’s best model predicting Procrastination. Each bar is a different feature. Color indicates feature category (psychological, situational, or time). Height of bars indicates the magnitude of the effect. (-) indicates negative effects." width="576" />
+<div class="figure"><span id="fig:unnamed-chunk-79"></span>
+<img src="book_files/figure-html/unnamed-chunk-79-1.png" alt="Figure 7. Variable Importance (absolute value of log odds) for Participant 160’s best model predicting Procrastination. Each bar is a different feature. Color indicates feature category (psychological, situational, or time). Height of bars indicates the magnitude of the effect. (-) indicates negative effects." width="576" />
 <p class="caption">
 Figure 6.5: Figure 7. Variable Importance (absolute value of log odds) for Participant 160’s best model predicting Procrastination. Each bar is a different feature. Color indicates feature category (psychological, situational, or time). Height of bars indicates the magnitude of the effect. (-) indicates negative effects.
 </p>
 </div>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="summarizing-models.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/fig-7-px-160.pdf&quot;</span>, local_path)</span>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="summarizing-models.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/fig-8-px-160.pdf&quot;</span>, local_path)</span>
 <span id="cb110-2"><a href="summarizing-models.html#cb110-2" aria-hidden="true" tabindex="-1"></a>       , <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">8</span>)</span></code></pre></div>
 </div>
 </div>
@@ -26567,60 +26577,65 @@ Figure 6.5: Figure 7. Variable Importance (absolute value of log odds) for Parti
 <span id="cb111-63"><a href="summarizing-models.html#cb111-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
 <span id="cb111-64"><a href="summarizing-models.html#cb111-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>)</span>
 <span id="cb111-65"><a href="summarizing-models.html#cb111-65" aria-hidden="true" tabindex="-1"></a>          , <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;bold&quot;</span>)</span>
-<span id="cb111-66"><a href="summarizing-models.html#cb111-66" aria-hidden="true" tabindex="-1"></a>          , <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span></span>
-<span id="cb111-67"><a href="summarizing-models.html#cb111-67" aria-hidden="true" tabindex="-1"></a>          , <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;black&quot;</span>)</span>
-<span id="cb111-68"><a href="summarizing-models.html#cb111-68" aria-hidden="true" tabindex="-1"></a>          , <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.2</span>)))</span>
-<span id="cb111-69"><a href="summarizing-models.html#cb111-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggsave</span>(p, <span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/03-px-profiles/%s_%s_%s.pdf&quot;</span></span>
-<span id="cb111-70"><a href="summarizing-models.html#cb111-70" aria-hidden="true" tabindex="-1"></a>                           , local_path, outcome, model, metric)</span>
-<span id="cb111-71"><a href="summarizing-models.html#cb111-71" aria-hidden="true" tabindex="-1"></a>         , <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">10</span>)</span>
-<span id="cb111-72"><a href="summarizing-models.html#cb111-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggsave</span>(p, <span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/03-px-profiles/png/%s_%s_%s.png&quot;</span></span>
-<span id="cb111-73"><a href="summarizing-models.html#cb111-73" aria-hidden="true" tabindex="-1"></a>                           , local_path, outcome, model, metric)</span>
-<span id="cb111-74"><a href="summarizing-models.html#cb111-74" aria-hidden="true" tabindex="-1"></a>         , <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">10</span>)</span>
-<span id="cb111-75"><a href="summarizing-models.html#cb111-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
-<span id="cb111-76"><a href="summarizing-models.html#cb111-76" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb111-77"><a href="summarizing-models.html#cb111-77" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb111-78"><a href="summarizing-models.html#cb111-78" aria-hidden="true" tabindex="-1"></a>profile_sim_plots <span class="ot">&lt;-</span> profile_sim <span class="sc">%&gt;%</span></span>
-<span id="cb111-79"><a href="summarizing-models.html#cb111-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(ftrs <span class="sc">%&gt;%</span> <span class="fu">select</span>(group, <span class="at">Variable =</span> old_name, new_name)) <span class="sc">%&gt;%</span></span>
-<span id="cb111-80"><a href="summarizing-models.html#cb111-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(model, .metric, outcome) <span class="sc">%&gt;%</span></span>
-<span id="cb111-81"><a href="summarizing-models.html#cb111-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb111-82"><a href="summarizing-models.html#cb111-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb111-83"><a href="summarizing-models.html#cb111-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(data, model, .metric, outcome), profile_plot_fun))</span></code></pre></div>
+<span id="cb111-66"><a href="summarizing-models.html#cb111-66" aria-hidden="true" tabindex="-1"></a>          , <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> .<span class="dv">5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>)</span>
+<span id="cb111-67"><a href="summarizing-models.html#cb111-67" aria-hidden="true" tabindex="-1"></a>          , <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span></span>
+<span id="cb111-68"><a href="summarizing-models.html#cb111-68" aria-hidden="true" tabindex="-1"></a>          , <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;black&quot;</span>)</span>
+<span id="cb111-69"><a href="summarizing-models.html#cb111-69" aria-hidden="true" tabindex="-1"></a>          , <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.2</span>))</span>
+<span id="cb111-70"><a href="summarizing-models.html#cb111-70" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb111-71"><a href="summarizing-models.html#cb111-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggsave</span>(p, <span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/03-px-profiles/%s_%s_%s.pdf&quot;</span></span>
+<span id="cb111-72"><a href="summarizing-models.html#cb111-72" aria-hidden="true" tabindex="-1"></a>                           , local_path, outcome, model, metric)</span>
+<span id="cb111-73"><a href="summarizing-models.html#cb111-73" aria-hidden="true" tabindex="-1"></a>         , <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">10</span>)</span>
+<span id="cb111-74"><a href="summarizing-models.html#cb111-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggsave</span>(p, <span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/03-px-profiles/png/%s_%s_%s.png&quot;</span></span>
+<span id="cb111-75"><a href="summarizing-models.html#cb111-75" aria-hidden="true" tabindex="-1"></a>                           , local_path, outcome, model, metric)</span>
+<span id="cb111-76"><a href="summarizing-models.html#cb111-76" aria-hidden="true" tabindex="-1"></a>         , <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">10</span>)</span>
+<span id="cb111-77"><a href="summarizing-models.html#cb111-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
+<span id="cb111-78"><a href="summarizing-models.html#cb111-78" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb111-79"><a href="summarizing-models.html#cb111-79" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb111-80"><a href="summarizing-models.html#cb111-80" aria-hidden="true" tabindex="-1"></a>profile_sim_plots <span class="ot">&lt;-</span> profile_sim <span class="sc">%&gt;%</span></span>
+<span id="cb111-81"><a href="summarizing-models.html#cb111-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(ftrs <span class="sc">%&gt;%</span> <span class="fu">select</span>(group, <span class="at">Variable =</span> old_name, new_name)) <span class="sc">%&gt;%</span></span>
+<span id="cb111-82"><a href="summarizing-models.html#cb111-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(model, .metric, outcome) <span class="sc">%&gt;%</span></span>
+<span id="cb111-83"><a href="summarizing-models.html#cb111-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb111-84"><a href="summarizing-models.html#cb111-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb111-85"><a href="summarizing-models.html#cb111-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(data, model, .metric, outcome), profile_plot_fun))</span></code></pre></div>
 <p>For parsimony, I’m just going to display the accuracy plots. You’ll find the others in the online materials and webapp.</p>
 <div id="elastic-net-2" class="section level4" number="6.5.2.1">
 <h4><span class="header-section-number">6.5.2.1</span> Elastic Net</h4>
 <p>Broadly there are a few takeaways from each of these figures. First, relative to other models (see below), ENR tended to include more features in any given model. However, likely due to the the combination of both soft and hard constraints via L1 and L2 regularization, the magnitudes were relatively low for some individuals than others. Second, only a relatively small number of participants’ best models had timing features. Third, even common features varied widely across people in presence, direction, and magnitude without exception. Finally, no two profiles are the same even just in which features were included, let alone in direction and magnitude of the associations.<br />
 ##### Procrastination</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="summarizing-models.html#cb112-1" aria-hidden="true" tabindex="-1"></a>(profile_sim_plots <span class="sc">%&gt;%</span> <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">&quot;accuracy&quot;</span> <span class="sc">&amp;</span> model <span class="sc">==</span> <span class="st">&quot;glmnet&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;prcrst&quot;</span>))<span class="sc">$</span>p[[<span class="dv">1</span>]]</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
 <div id="loneliness-5" class="section level5" number="6.5.2.1.1">
 <h5><span class="header-section-number">6.5.2.1.1</span> Loneliness</h5>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="summarizing-models.html#cb113-1" aria-hidden="true" tabindex="-1"></a>(profile_sim_plots <span class="sc">%&gt;%</span> <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">&quot;accuracy&quot;</span> <span class="sc">&amp;</span> model <span class="sc">==</span> <span class="st">&quot;glmnet&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;lonely&quot;</span>))<span class="sc">$</span>p[[<span class="dv">1</span>]]</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
 </div>
 </div>
 <div id="biscwit-2" class="section level4" number="6.5.2.2">
 <h4><span class="header-section-number">6.5.2.2</span> BISCWIT</h4>
 <p>Broadly there are a few takeaways from each of these figures. First, the relative magnitude of the correlations tended to be stronger in the positive direction than the negative one. Second, only a relatively small number of participants’ best models had timing features. Third, even common features varied widely across people in presence, direction, and magnitude without exception. Finally, no two profiles are the same even just in which features were included, let alone in direction and magnitude of the associations.<br />
-##### Procrastination</p>
+##### Procrastination (Figure 5)</p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="summarizing-models.html#cb114-1" aria-hidden="true" tabindex="-1"></a>(profile_sim_plots <span class="sc">%&gt;%</span> <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">&quot;accuracy&quot;</span> <span class="sc">&amp;</span> model <span class="sc">==</span> <span class="st">&quot;biscwit&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;prcrst&quot;</span>))<span class="sc">$</span>p[[<span class="dv">1</span>]]</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="summarizing-models.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%s/05-results/05-figures/fig-5-px-coef-profiles.png&quot;</span></span>
+<span id="cb115-2"><a href="summarizing-models.html#cb115-2" aria-hidden="true" tabindex="-1"></a>                           , local_path)</span>
+<span id="cb115-3"><a href="summarizing-models.html#cb115-3" aria-hidden="true" tabindex="-1"></a>       , <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">10</span>)</span></code></pre></div>
 <div id="loneliness-6" class="section level5" number="6.5.2.2.1">
 <h5><span class="header-section-number">6.5.2.2.1</span> Loneliness</h5>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="summarizing-models.html#cb115-1" aria-hidden="true" tabindex="-1"></a>(profile_sim_plots <span class="sc">%&gt;%</span> <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">&quot;accuracy&quot;</span> <span class="sc">&amp;</span> model <span class="sc">==</span> <span class="st">&quot;biscwit&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;lonely&quot;</span>))<span class="sc">$</span>p[[<span class="dv">1</span>]]</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="summarizing-models.html#cb116-1" aria-hidden="true" tabindex="-1"></a>(profile_sim_plots <span class="sc">%&gt;%</span> <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">&quot;accuracy&quot;</span> <span class="sc">&amp;</span> model <span class="sc">==</span> <span class="st">&quot;biscwit&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;lonely&quot;</span>))<span class="sc">$</span>p[[<span class="dv">1</span>]]</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
 </div>
 </div>
 <div id="random-forest-2" class="section level4" number="6.5.2.3">
 <h4><span class="header-section-number">6.5.2.3</span> Random Forest</h4>
 <div id="procrastination-4" class="section level5" number="6.5.2.3.1">
 <h5><span class="header-section-number">6.5.2.3.1</span> Procrastination</h5>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="summarizing-models.html#cb116-1" aria-hidden="true" tabindex="-1"></a>(profile_sim_plots <span class="sc">%&gt;%</span> <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">&quot;accuracy&quot;</span> <span class="sc">&amp;</span> model <span class="sc">==</span> <span class="st">&quot;rf&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;prcrst&quot;</span>))<span class="sc">$</span>p[[<span class="dv">1</span>]]</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="summarizing-models.html#cb117-1" aria-hidden="true" tabindex="-1"></a>(profile_sim_plots <span class="sc">%&gt;%</span> <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">&quot;accuracy&quot;</span> <span class="sc">&amp;</span> model <span class="sc">==</span> <span class="st">&quot;rf&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;prcrst&quot;</span>))<span class="sc">$</span>p[[<span class="dv">1</span>]]</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p>
 </div>
 <div id="loneliness-7" class="section level5" number="6.5.2.3.2">
 <h5><span class="header-section-number">6.5.2.3.2</span> Loneliness</h5>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="summarizing-models.html#cb117-1" aria-hidden="true" tabindex="-1"></a>(profile_sim_plots <span class="sc">%&gt;%</span> <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">&quot;accuracy&quot;</span> <span class="sc">&amp;</span> model <span class="sc">==</span> <span class="st">&quot;rf&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;lonely&quot;</span>))<span class="sc">$</span>p[[<span class="dv">1</span>]]</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="summarizing-models.html#cb118-1" aria-hidden="true" tabindex="-1"></a>(profile_sim_plots <span class="sc">%&gt;%</span> <span class="fu">filter</span>(.metric <span class="sc">==</span> <span class="st">&quot;accuracy&quot;</span> <span class="sc">&amp;</span> model <span class="sc">==</span> <span class="st">&quot;rf&quot;</span> <span class="sc">&amp;</span> outcome <span class="sc">==</span> <span class="st">&quot;lonely&quot;</span>))<span class="sc">$</span>p[[<span class="dv">1</span>]]</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
 
 </div>
 </div>
