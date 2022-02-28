@@ -1,4 +1,4 @@
-###Personalized prediction of behaviors and experiences: An idiographic person-situation test
+### Personalized prediction of behaviors and experiences: An idiographic person-situation test
 Emorie D. Beck and Joshua J. Jackson
 
 Welcome to the OSF landing page for what we have affectionately called the idiographic prediction project. 
